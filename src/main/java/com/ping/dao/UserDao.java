@@ -15,4 +15,19 @@ public interface UserDao {
      * @return
      */
     List<User> findAll();
+
+    /**
+     * 保存用户信息
+     */
+    void saveUser(User user);
+
+    /**
+     * 更新用户
+     */
+    void updateUser(User user);
+
+    /**
+     * 删除用户
+     */
+    void deleteUser(int userid);
 }

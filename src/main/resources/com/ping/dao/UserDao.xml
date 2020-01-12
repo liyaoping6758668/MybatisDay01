@@ -7,4 +7,19 @@
     <select id="findAll" resultType="com.ping.domain.User">
         select * from user
     </select>
+
+    <!--保存用户-->
+    <insert id="saveUser" parameterType="com.ping.domain.User">
+        insert into user(username,birthday,sex,address) values(#{username},#{birthday},#{sex},#{address})
+    </insert>
+    <!--更新用户-->
+    <update id="updateUser" parameterType="com.ping.domain.User">
+        update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id=#{id}
+    </update>
+    <!--删除用户
+      注意如果是一个参数，这里参数名称和方法参数名称可以不一致
+    -->
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id=#{id}
+    </delete>
 </mapper>
