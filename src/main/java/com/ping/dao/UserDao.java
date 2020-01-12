@@ -30,4 +30,14 @@ public interface UserDao {
      * 删除用户
      */
     void deleteUser(int userid);
+
+    /**
+     * 根据id查询用户信息
+     */
+    User findById(int userid);
+
+    /**
+     * 根据用户名称模糊查询
+     */
+    List<User> findByName(String username);
 }

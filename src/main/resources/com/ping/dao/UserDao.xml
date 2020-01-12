@@ -22,4 +22,13 @@
     <delete id="deleteUser" parameterType="int">
         delete from user where id=#{id}
     </delete>
+    <!--根据id查询用户信息-->
+    <select id="findById" parameterType="int" resultType="com.ping.domain.User">
+        select * from user where id=#{id}
+    </select>
+
+    <!--根据用户名称模糊查询-->
+    <select id="findByName" parameterType="String" resultType="com.ping.domain.User">
+         select * from user where username like #{username}
+    </select>
 </mapper>

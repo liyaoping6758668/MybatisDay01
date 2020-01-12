@@ -106,4 +106,26 @@ public class MybatisTest {
 
         userDao.deleteUser(53);
     }
+
+    /**
+     * 根据id查询用户所有信息
+     */
+    @Test
+    public void findById(){
+
+        User user = userDao.findById(48);
+        System.out.println(user);
+    }
+
+    /**
+     * 根据用户名称模糊查询
+     */
+    @Test
+    public void findByName(){
+
+        List<User> users = userDao.findByName("%王%");
+        for (User user:users){
+            System.out.println(user);
+        }
+    }
 }
