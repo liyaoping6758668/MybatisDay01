@@ -1,6 +1,7 @@
 package com.ping.dao;
 
 import com.ping.domain.User;
+import com.ping.domain.UserPojo;
 
 import java.util.List;
 
@@ -39,5 +40,11 @@ public interface UserDao {
     /**
      * 根据用户名称模糊查询
      */
-    List<User> findByName(String username);
+//    List<User> findByName(String username);
+    List<User> findByName(UserPojo userPojo);
+
+    /**
+     * 查询总记录数
+     */
+    int findTotal();
 }

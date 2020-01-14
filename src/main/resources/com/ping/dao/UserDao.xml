@@ -28,7 +28,16 @@
     </select>
 
     <!--根据用户名称模糊查询-->
-    <select id="findByName" parameterType="String" resultType="com.ping.domain.User">
+   <!-- <select id="findByName" parameterType="String" resultType="com.ping.domain.User">
          select * from user where username like #{username}
+    </select>-->
+    <!--假如参数是一个复杂类-->
+    <select id="findByName" parameterType="com.ping.domain.UserPojo" resultType="com.ping.domain.User">
+        select * from user where username like #{user.username}
+    </select>
+
+    <!--查询总记录数-->
+    <select id="findTotal" resultType="int">
+        select count(id) from user
     </select>
 </mapper>
