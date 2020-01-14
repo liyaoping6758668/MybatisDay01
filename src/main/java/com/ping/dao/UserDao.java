@@ -40,8 +40,8 @@ public interface UserDao {
     /**
      * 根据用户名称模糊查询
      */
-//    List<User> findByName(String username);
-    List<User> findByName(UserPojo userPojo);
+    List<User> findByName(String username);
+//    List<User> findByName(UserPojo userPojo);
 
     /**
      * 查询总记录数

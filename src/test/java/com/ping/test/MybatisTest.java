@@ -121,19 +121,19 @@ public class MybatisTest {
     /**
      * 根据用户名称模糊查询
      */
-   /* @Test
+    @Test
     public void findByName(){
 
         List<User> users = userDao.findByName("%王%");
         for (User user:users){
             System.out.println(user);
         }
-    }*/
+    }
 
     /**
      * 如果参数是一个复合数据类型，mybatis用是ognl对象导航语言和struts2一样
      */
-    @Test
+   /* @Test
     public void findByName(){
         UserPojo userPojo=new UserPojo();
         User user=new User();
@@ -143,7 +143,7 @@ public class MybatisTest {
         for (User user2:users){
             System.out.println(user2);
         }
-    }
+    }*/
 
     /**
      * 查询总记录数
@@ -153,4 +153,5 @@ public class MybatisTest {
         int total = userDao.findTotal();
         System.out.println(total);
     }
+
 }
