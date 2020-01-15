@@ -4,6 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <!--mybatis主配置文件-->
 <configuration>
+    <!--配置外部数据库文件-->
+    <properties resource="jdbcConfig.properties"></properties>
+    <!--配置实体类别名-->
+    <typeAliases>
+        <!--该方式区分大小写-->
+        <!--<typeAlias type="com.ping.domain.User" alias="user"></typeAlias>-->
+        <!--配置整个包所有类的别名，默认是类名，不区分大小写-->
+        <package name="com.ping.domain"></package>
+    </typeAliases>
     <!--配置环境-->
     <environments default="mysql">
         <!--配置mysql环境-->
@@ -13,14 +22,16 @@
             <!--配置数据源连接池-->
             <dataSource type="POOLED">
                 <!--配置数据库4基本信息-->
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/mybatisdb"/>
-                <property name="username" value="root"/>
-                <property name="password" value="root"/>
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/ping/dao/UserDao.xml"/>
+        <!--<mapper resource="com/ping/dao/UserDao.xml"/>-->
+        <!--配置dao包方式-->
+        <package name="com.ping.dao"></package>
     </mappers>
 </configuration>
