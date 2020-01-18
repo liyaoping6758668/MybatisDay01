@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -154,4 +155,33 @@ public class MybatisTest {
         System.out.println(total);
     }
 
+    /**
+     * 2020-1-18lyp
+     * 通过属性是否存在值，拼接条件查询
+     */
+    @Test
+    public void testFindByCondition(){
+        User user=new User();
+        user.setUsername("老王");
+        List<User> users = userDao.findByCondition(user);
+        for (User user1:users){
+            System.out.println(user1);
+        }
+    }
+
+    /**
+     * 通过传批量用户id查询
+     */
+    @Test
+    public void testFindByListId(){
+        UserPojo userPojo=new UserPojo();
+        List<Integer> idList=new ArrayList<Integer>();
+        idList.add(41);
+        idList.add(42);
+        userPojo.setIdList(idList);
+        List<User> users = userDao.findByListId(userPojo);
+        for (User user1:users){
+            System.out.println(user1);
+        }
+    }
 }

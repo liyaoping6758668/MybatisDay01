@@ -47,4 +47,14 @@ public interface UserDao {
      * 查询总记录数
      */
     int findTotal();
+
+    /**
+     * 根据查询条件拼接sql
+     */
+    List<User> findByCondition(User user);
+
+    /**
+     * 根据多个id查询用户信息
+     */
+    List<User> findByListId(UserPojo userPojo);
 }

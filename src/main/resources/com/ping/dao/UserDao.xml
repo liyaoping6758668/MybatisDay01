@@ -3,6 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ping.dao.UserDao">
+    <sql id="selectAll" >
+         select * from USER
+    </sql>
+
     <!--配置查询所有-->
     <select id="findAll" resultType="com.ping.domain.User">
         select * from user
@@ -47,5 +51,30 @@
     <!--查询总记录数-->
     <select id="findTotal" resultType="int">
         select count(id) from user
+    </select>
+
+    <!--根据查询条件拼接sql-->
+    <select id="findByCondition" resultType="User" parameterType="User">
+        select * from USER
+        <where>
+            <if test="username !=null">
+                and username=#{username}
+            </if>
+        </where>
+
+    </select>
+
+
+    <!--根据批量id查询条件拼接sql-->
+    <select id="findByListId" resultType="User" parameterType="int">
+        <include refid="selectAll"></include>
+        <where>
+            <if test="idList !=null and idList.size>0 ">
+                <foreach collection="idList" open="and id in(" close=")" item="id" separator=",">
+                          #{id}
+                </foreach>
+            </if>
+        </where>
+
     </select>
 </mapper>
