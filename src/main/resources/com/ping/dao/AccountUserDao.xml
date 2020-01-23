@@ -4,8 +4,23 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ping.dao.AccountUserDao">
     <!--测试一对一方式-->
-    <select id="findAll" resultType="AccountUser">
+    <!--<select id="findAll" resultType="AccountUser">
         select a.*,u.username,u.address from user u,account a where u.id=a.UID
+    </select>-->
+    <resultMap id="accountuser" type="Account">
+        <id property="id" column="aid"></id>
+        <result property="uid" column="uid"></result>
+        <result property="money" column="money"></result>
+        <association property="user" column="uid" javaType="user">
+            <id property="id" column="id"></id>
+            <result property="username" column="username"></result>
+            <result property="birthday" column="birthday"></result>
+            <result property="sex" column="sex"></result>
+            <result property="address" column="address"></result>
+        </association>
+    </resultMap>
+    <!--常用的映射一对一的方式-->
+    <select id="findAll" resultMap="accountuser">
+        select u.*,a.id as aid,a.uid,a.money from user u,account a where u.id=a.UID
     </select>
-
 </mapper>
