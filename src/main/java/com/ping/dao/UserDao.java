@@ -57,4 +57,9 @@ public interface UserDao {
      * 根据多个id查询用户信息
      */
     List<User> findByListId(UserPojo userPojo);
+
+    /**
+     * 查询一对多，一个用户多个账户信息
+     */
+    List<User> findUserAccount();
 }

@@ -8,6 +8,7 @@ public class AccountUser extends Account {
     private String username;
     private String address;
 
+
     public String getUsername() {
         return username;
     }

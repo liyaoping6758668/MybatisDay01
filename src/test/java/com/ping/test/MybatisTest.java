@@ -184,4 +184,15 @@ public class MybatisTest {
             System.out.println(user1);
         }
     }
+
+    /**
+     * 查询一个用户多个账户信息
+     */
+    @Test
+    public void testFindUserAccount(){
+        List<User> users = userDao.findUserAccount();
+        for (User user1:users){
+            System.out.println(user1);
+        }
+    }
 }

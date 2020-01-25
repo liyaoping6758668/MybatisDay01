@@ -77,4 +77,23 @@
         </where>
 
     </select>
+
+    <resultMap id="findUserAccountResult" type="User">
+
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="birthday" column="birthday"></result>
+        <result property="sex" column="sex"></result>
+        <result property="address" column="address"></result>
+        <collection property="accounts" ofType="Account">
+            <id column="id" property="id"></id>
+            <result property="uid" column="uid"></result>
+            <result property="money" column="money"></result>
+        </collection>
+
+    </resultMap>
+    <!--一个用户多个账户信息，一对多-->
+    <select id="findUserAccount" resultMap="findUserAccountResult">
+        select * from user u LEFT JOIN account a on u.id=a.UID
+    </select>
 </mapper>

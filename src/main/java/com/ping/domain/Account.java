@@ -8,6 +8,8 @@ public class Account {
     private Integer id;
     private Integer uid;
     private Double  money;
+//    private User user;
+
 
     public Integer getId() {
         return id;
@@ -16,6 +18,14 @@ public class Account {
     public void setId(Integer id) {
         this.id = id;
     }
+
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public Integer getUid() {
         return uid;

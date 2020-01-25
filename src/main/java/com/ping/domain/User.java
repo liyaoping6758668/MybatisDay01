@@ -2,6 +2,7 @@ package com.ping.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author:lyp
@@ -13,6 +14,9 @@ public class User implements Serializable {
     private Date birthday;
     private String sex;
     private String address;
+    //一对多
+    private List<Account> accounts;
+
 
     public Integer getId() {
         return id;
@@ -20,6 +24,14 @@ public class User implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
     public String getUsername() {
@@ -62,6 +74,7 @@ public class User implements Serializable {
                 ", birthday=" + birthday +
                 ", sex='" + sex + '\'' +
                 ", address='" + address + '\'' +
+                ", accounts=" + accounts +
                 '}';
     }
 }

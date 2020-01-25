@@ -52,9 +52,10 @@ public class TestAccountUserMybatis {
     }
     @Test
     public void findAll() {
-        List<AccountUser> accountList = accountUserDao.findAll();
-        for (AccountUser accountUser:accountList) {
+        List<Account> accountList = accountUserDao.findAll();
+        for (Account accountUser:accountList) {
             System.out.println(accountUser);
+//            System.out.println(accountUser.getUser());
         }
         /*//6.释放资源
         sqlSession.close();
