@@ -15,7 +15,7 @@ public class User implements Serializable {
     private String sex;
     private String address;
     //一对多
-    private List<Account> accounts;
+//    private List<Account> accounts;
 
 
     public Integer getId() {
@@ -26,13 +26,13 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public List<Account> getAccounts() {
-        return accounts;
-    }
+//    public List<Account> getAccounts() {
+//        return accounts;
+//    }
 
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
-    }
+//    public void setAccounts(List<Account> accounts) {
+//        this.accounts = accounts;
+//    }
 
     public String getUsername() {
         return username;
@@ -74,7 +74,7 @@ public class User implements Serializable {
                 ", birthday=" + birthday +
                 ", sex='" + sex + '\'' +
                 ", address='" + address + '\'' +
-                ", accounts=" + accounts +
+//                ", accounts=" + accounts +
                 '}';
     }
 }
